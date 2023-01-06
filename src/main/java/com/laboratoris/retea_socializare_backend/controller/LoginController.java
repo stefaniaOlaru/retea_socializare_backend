@@ -23,7 +23,7 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<JwtResponse> register(@Valid @RequestBody UserRegisterRequest userRegisterRequest) {
+    public ResponseEntity<JwtResponse> register(@Valid @RequestBody UserRegisterRequest userRegisterRequest) throws  Exception {
         return authService.create(userRegisterRequest);
     }
 
