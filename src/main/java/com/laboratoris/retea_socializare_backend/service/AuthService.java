@@ -66,9 +66,9 @@ public class AuthService implements IAuthService {
     }
 
     @Override
-    public ResponseEntity<JwtResponse> create(UserRegisterRequest request) {
+    public ResponseEntity<JwtResponse> create(UserRegisterRequest request) throws Exception {
         if (applicationUserRepository.findByEmail(request.getEmail()).orElse(null) != null) {
-            throw new RuntimeException("User already exists");
+            throw new BadCredentialsException("User already exists");
         }
 
         request.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));

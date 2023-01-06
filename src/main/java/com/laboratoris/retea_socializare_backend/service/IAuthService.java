@@ -9,7 +9,7 @@ public interface IAuthService {
 
     public ResponseEntity<JwtResponse> login(UserLoginRequest request);
 
-    public ResponseEntity<JwtResponse> create(UserRegisterRequest request);
+    public ResponseEntity<JwtResponse> create(UserRegisterRequest request) throws Exception;
 
     public ResponseEntity<JwtResponse> refresh(String refreshToken);
 }
